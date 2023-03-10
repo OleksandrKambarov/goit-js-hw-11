@@ -1,5 +1,5 @@
-import fetchImages from './fetch-images';
-import cardTemplate from '../template/card-template.hbs';
+import fetchImages from '../js/fetchimages';
+import cardTemplate from '../template/cardtemplate.hbs';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
@@ -75,5 +75,20 @@ async function onSubmitSearchForm(e) {
     }
   } catch (error) {
     console.log(error);
+  }
+}
+
+loadMoreBtn.addEventListener('click', onClickLoadMoreBtn);
+
+async function onClickLoadMoreBtn() {
+  currentPage += 1;
+  const response = await fetchImages(searchQuery, currentPage);
+  renderCardImage(response.hits);
+  lightbox.refresh();
+  currentHits += response.hits.length;
+
+  if (currentHits === response.totalHits) {
+    loadMoreBtn.classList.add('is-hidden');
+    endCollectionText.classList.remove('is-hidden');
   }
 }
