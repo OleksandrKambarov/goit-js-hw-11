@@ -63,8 +63,8 @@ p {
 }
 
 .search-form__input {
-  width: 180px;
-  height: 40px;
+  width: 100px;
+  height: auto;
   padding: 10px;
   font-size: 16px;
   outline: none;
