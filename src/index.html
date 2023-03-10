@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Homework 11</title>
   </head>
@@ -14,10 +13,15 @@
         autocomplete="off"
         placeholder="Search images..."
       />
-      <button type="submit">Search</button>
+      <button class="search-form__button" type="submit">Search</button>
     </form>
-    <div class="gallery"></div>
-    <button type="button" class="load-more hidden">Load more</button>
-    <script src="index.js" type="module"></script>
+    <div class="container">
+      <div class="gallery"></div>
+      <button type="button" class="load-more hidden">Load more</button>
+      <p class="end-collection-text is-hidden">
+        We're sorry, but you've reached the end of search results.
+      </p>
+    </div>
+    <script src="index.js"></script>
   </body>
 </html>
