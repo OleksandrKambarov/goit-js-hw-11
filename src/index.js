@@ -1,4 +1,4 @@
-import fetchImages from './index.js';
+import fetchImages from './js/fetch-images';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
@@ -14,23 +14,22 @@ const { searchForm, gallery, loadMoreBtn, endCollectionText } = {
 function renderCardImage(arr) {
   const markup = arr
     .map(hit => {
-      return;
-      `<div class="photo-card">
+      return `<div class="photo-card">
           <a href="${hit.largeImageURL}">
             <img src="${hit.webformatURL}" alt="${hit.tags}" loading="lazy" />
           </a>
           <div class="info">
             <p class="info-item">
-              <b>Likes</b>${hit.likes.toLocaleString()}
+              <b>Likes</b>${hit.likes}
             </p>
             <p class="info-item">
-              <b>Views</b>${hit.views.toLocaleString()}
+              <b>Views</b>${hit.views}
             </p>
             <p class="info-item">
-              <b>Comments</b>${hit.comments.toLocaleString()}
+              <b>Comments</b>${hit.comment}
             </p>
             <p class="info-item">
-              <b>Downloads</b>${hit.downloads.toLocaleString()}
+              <b>Downloads</b>${hit.downloads}
             </p>
           </div>
         </div>
