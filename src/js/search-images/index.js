@@ -92,20 +92,3 @@ async function onClickLoadMoreBtn() {
     endCollectionText.classList.remove('is-hidden');
   }
 }
-
-// window.addEventListener('scroll', throttle(onScrollWindow, 500));
-// async function onScrollWindow() {
-//   const documentRect = document.documentElement.getBoundingClientRect();
-//   const heightBeforeLoading = 300;
-//   if (documentRect.bottom < document.documentElement.clientHeight + heightBeforeLoading) {
-//     currentPage += 1;
-//     const response = await fetchImages(searchQuery, currentPage);
-//     renderCardImage(response.hits);
-//     lightbox.refresh();
-//     currentHits += response.hits.length;
-
-//     if (currentHits === response.totalHits) {
-//       endCollectionText.classList.remove('is-hidden');
-//     }
-//   }
-// }
