@@ -23,8 +23,6 @@ let lightbox = new SimpleLightbox('.photo-card a', {
   captionDelay: 250,
 });
 
-lightbox.refresh();
-
 let currentPage = 1;
 let currentHits = 0;
 let searchQuery = '';
