@@ -1,5 +1,4 @@
-import fetchImages from '../search-images/index.js';
-import cardTemplate from '../template/card-template.hbs';
+import fetchImages from './index.js';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
@@ -13,7 +12,31 @@ const { searchForm, gallery, loadMoreBtn, endCollectionText } = {
 };
 
 function renderCardImage(arr) {
-  const markup = arr.map(item => cardTemplate(item)).join('');
+  const markup = arr
+    .map(hit => {
+      return;
+      `<div class="photo-card">
+          <a href="${hit.largeImageURL}">
+            <img src="${hit.webformatURL}" alt="${hit.tags}" loading="lazy" />
+          </a>
+          <div class="info">
+            <p class="info-item">
+              <b>Likes</b>${hit.likes.toLocaleString()}
+            </p>
+            <p class="info-item">
+              <b>Views</b>${hit.views.toLocaleString()}
+            </p>
+            <p class="info-item">
+              <b>Comments</b>${hit.comments.toLocaleString()}
+            </p>
+            <p class="info-item">
+              <b>Downloads</b>${hit.downloads.toLocaleString()}
+            </p>
+          </div>
+        </div>
+      `;
+    })
+    .join('');
   gallery.insertAdjacentHTML('beforeend', markup);
 }
 
